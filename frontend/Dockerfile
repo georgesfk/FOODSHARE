@@ -5,19 +5,19 @@ FROM node:22-bookworm-slim
 WORKDIR /app
 
 # Copier le fichier package.json et package-lock.json
-COPY package*.json ./
+COPY . .
 
 # Installer les dépendances
 RUN npm install
 
 # Copier le reste des fichiers de l'application
-COPY . .
+#COPY . .
 
 # Construire l'application React
-RUN npm run build
+#RUN npm run build
 
 # Exposer le port sur lequel l'application va tourner
-EXPOSE 3000
+EXPOSE 5173
 
 # Démarrer l'application avec l'option legacy OpenSSL
-CMD ["sh", "-c", "export NODE_OPTIONS=--openssl-legacy-provider && npm start"]
+CMD ["npm", "run", "dev"]

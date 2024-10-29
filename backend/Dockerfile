@@ -1,17 +1,17 @@
 # Utiliser une image Node.js officielle comme image de base
-FROM node:14
+FROM node:22-bookworm-slim
 
 # Définir le répertoire de travail dans le conteneur
-WORKDIR /app
+#WORKDIR /app
 
 # Copier le fichier package.json et package-lock.json
-COPY package*.json ./
+COPY . .
 
 # Installer les dépendances
 RUN npm install
 
 # Copier le reste des fichiers de l'application
-COPY . .
+#COPY . .
 
 # Exposer le port sur lequel l'application va tourner
 EXPOSE 8080
