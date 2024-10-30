@@ -1,4 +1,43 @@
-// models/Recipe.js
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+
+// const RecipeList = () => {
+//     const [recipes, setRecipes] = useState([]);
+//     const [error, setError] = useState('');
+
+//     useEffect(() => {
+//         const fetchRecipes = async () => {
+//             try {
+//                 const response = await axios.get('/api/recipes'); // Make sure the URL matches your backend
+//                 setRecipes(response.data);
+//             } catch (err) {
+//                 setError('Failed to fetch recipes');
+//                 console.error(err);
+//             }
+//         };
+
+//         fetchRecipes();
+//     }, []);
+
+//     return (
+//         <div>
+//             <h1>Recipe List</h1>
+//             {error && <p>{error}</p>}
+//             <ul>
+//                 {recipes.map(recipe => (
+//                     <li key={recipe._id}>
+//                         <h2>{recipe.title}</h2>
+//                         <p>{recipe.description}</p>
+//                     </li>
+//                 ))}
+//             </ul>
+//         </div>
+//     );
+// };
+
+// export default RecipeList;
+
+
 const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
@@ -15,7 +54,7 @@ const recipeSchema = new mongoose.Schema({
 
 const Recipe = mongoose.model('Recipe', recipeSchema);
 
-// Sample French recipes to add to the database
+
 const sampleRecipes = [
   {
     title: "Coq au Vin",
@@ -40,7 +79,7 @@ const sampleRecipes = [
   }
 ];
 
-// Pre-populate the recipes in the database if not already present
+
 Recipe.find({}, (err, recipes) => {
   if (err) console.error(err);
   if (recipes.length === 0) {
@@ -50,4 +89,4 @@ Recipe.find({}, (err, recipes) => {
   }
 });
 
-module.exports = Recipe;
+module.exports = RecipeList;

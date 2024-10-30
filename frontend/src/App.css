@@ -1,0 +1,84 @@
+/* App.css */
+
+/* General Body Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* You can change this to any font you prefer */
+    background: linear-gradient(135deg, #e2e2e2 0%, #ffffff 100%); /* Light gradient background */
+    perspective: 1000px; /* Enable 3D perspective */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #333; /* Dark background for the navbar */
+    padding: 10px;
+    position: sticky; /* Make the navbar sticky */
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Keep it above other content */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Soft shadow for 3D effect */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox for horizontal layout */
+}
+
+.nav-links li {
+    margin: 0 15px; /* Spacing between links */
+}
+
+.nav-link {
+    color: white; /* White text color for links */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 18px; /* Font size for links */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.nav-link:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    text-decoration: underline; /* Underline effect on hover */
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px; /* Padding for the main content area */
+}
+
+h1, h2, h3 {
+    color: #333; /* Dark text color for headers */
+}
+
+/* Card Styles for Recipe Cards */
+.card {
+    background: white; /* White background for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Card shadow for 3D effect */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+    padding: 15px; /* Padding for card content */
+    margin: 15px 0; /* Margin between cards */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Button Styles */
+.button {
+    background: linear-gradient(145deg, #e6e6e6, #ffffff); /* Gradient button */
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+    box-shadow: 5px 5px 15px #a1a1a1, 
+                -5px -5px 15px #ffffff; /* 3D shadow for buttons */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition */
+}
+
+.button:hover {
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 10px 10px 20px #a1a1a1, 
+                -10px
+}

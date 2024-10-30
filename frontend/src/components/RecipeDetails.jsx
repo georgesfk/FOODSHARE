@@ -6,39 +6,71 @@ const RecipeDetail = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [comment, setComment] = useState('');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/recipes/${id}`)
-      .then(response => setRecipe(response.data))
-      .catch(error => console.error('Error fetching recipe:', error));
+    axios
+      .get(`http://localhost:3000/recipes/${id}`)
+      .then(response => {
+        setRecipe(response.data);
+        setError(null);
+      })
+      .catch(error => {
+        console.error('Error fetching recipe:', error);
+        setError('Failed to load recipe. Please try again later.');
+      });
   }, [id]);
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
-    axios.post(`http://localhost:3000/recipes/${id}/comments`, { text: comment })
+    axios
+      .post(`http://localhost:3000/recipes/${id}/comments`, { text: comment })
       .then(response => {
         setRecipe(response.data);
-        setComment(''); // Reset comment field
+        setComment('');
       })
-      .catch(error => console.error('Error posting comment:', error));
+      .catch(error => {
+        console.error('Error posting comment:', error);
+        setError('Failed to post comment. Please try again.');
+      });
   };
 
   return (
     <div>
-      {recipe && (
+      {error && <p className="error-message">{error}</p>}
+
+      {recipe ? (
         <>
           <h1>{recipe.title}</h1>
           <p>{recipe.description}</p>
+
           <h3>Ingredients</h3>
-          <p>{recipe.ingredients}</p>
+          <ul>
+            {Array.isArray(recipe.ingredients)
+              ? recipe.ingredients.map((ingredient, index) => (
+                  <li key={index}>{ingredient}</li>
+                ))
+              : <li>{recipe.ingredients}</li>}
+          </ul>
+
           <h3>Steps</h3>
-          <p>{recipe.steps}</p>
+          <ol>
+            {Array.isArray(recipe.steps)
+              ? recipe.steps.map((step, index) => (
+                  <li key={index}>{step}</li>
+                ))
+              : <li>{recipe.steps}</li>}
+          </ol>
 
           <h3>Comments</h3>
           <ul>
-            {recipe.comments.map((c) => (
-              <li key={c._id}>{c.text}</li> // Correct closing parenthesis added
-            ))}
+            {recipe.comments && recipe.comments.length > 0 ? (
+              recipe.comments.map((c) => (
+                <li key={c._id}>{c.text}</li>
+              ))
+            ) : (
+              <p>No comments yet. Be the first to comment!</p>
+            )}
           </ul>
 
           <form onSubmit={handleCommentSubmit}>
@@ -47,10 +79,13 @@ const RecipeDetail = () => {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="Add a comment"
+              required
             />
             <button type="submit">Post Comment</button>
           </form>
         </>
+      ) : (
+        <p>Loading recipe details...</p>
       )}
     </div>
   );

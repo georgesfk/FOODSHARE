@@ -10,7 +10,7 @@ const RecipeForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/recipes', recipe)
+    axios.post('http://localhost:3000/recipes', recipe)
       .then(response => {
         alert('Recipe submitted successfully!');
         // Optionnel : Rediriger ou réinitialiser le formulaire
