@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Home from './components/Home.jsx';
-import RecipeList from './components/RecipeList.jsx';
+import Home from './components/Home.jsx'; 
+// import RecipeList from './components/RecipeList.jsx';
 import RecipeDetails from './components/RecipeDetails.jsx';
 import Submit from './components/Submit.jsx'; 
 import './App.css';
@@ -16,7 +16,7 @@ const App = () => {
                 <Route path="/" element={<Home />} />
 
             
-               <Route path="/recipe-list" element={<RecipeList />} />  
+               {/* <Route path="/recipe-list" element={<RecipeList />} />   */}
                 <Route path="/recipe-detail" element={<RecipeDetails />} />
                 <Route path="/recipe/:id" element={<RecipeDetails />} />
                 <Route path="/submit" element={<Submit />} />
