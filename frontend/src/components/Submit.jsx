@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Submit extends Component {
     constructor(props) {
         super(props);
         this.state = {
             title: '',
+            description:'',
             ingredients: '',
             instructions: '',
             errorMessage: '',
@@ -18,7 +20,7 @@ class Submit extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const { title, ingredients, instructions } = this.state;
+        const { title, description, ingredients, instructions } = this.state;
 
         // Basic validation
         if (!title || !ingredients || !instructions) {
@@ -34,12 +36,19 @@ class Submit extends Component {
             instructions,
         });
 
+        axios.post('http://localhost:8080/api/recipes', this.state)
+        .then(response => {
+          alert('Recipe submitted successfully!');
+          // Optionnel : Rediriger ou réinitialiser le formulaire
+        })
+        .catch(error => console.error('Error submitting recipe:', error));
+
         // Reset the form
-        this.setState({ title: '', ingredients: '', instructions: '', errorMessage: '' });
+        this.setState({ title: '', description:'', ingredients: '', instructions: '', errorMessage: '' });
     };
 
     render() {
-        const { title, ingredients, instructions, errorMessage } = this.state;
+        const { title, description, ingredients, instructions, errorMessage } = this.state;
 
         return (
             <div>
@@ -53,6 +62,17 @@ class Submit extends Component {
                                 type="text"
                                 name="title"
                                 value={title}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            description:
+                            <textarea
+                                name="description"
+                                value={description}
                                 onChange={this.handleChange}
                                 required
                             />

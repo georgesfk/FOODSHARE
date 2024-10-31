@@ -10,7 +10,7 @@ const RecipeDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/recipes/${id}`)
+      .get(`http://localhost:8080/api/recipes/${id}`)
       .then(response => {
         setRecipe(response.data);
         setError(null);
@@ -24,7 +24,7 @@ const RecipeDetail = () => {
   const handleCommentSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`http://localhost:8080/recipes/${id}/comments`, { text: comment })
+      .post(`http://localhost:8080/api/recipes/${id}/comments`, { text: comment })
       .then(response => {
         setRecipe(response.data);
         setComment('');

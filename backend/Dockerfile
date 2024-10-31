@@ -1,20 +1,24 @@
-# Utiliser une image Node.js officielle comme image de base
-FROM node:22-bookworm-slim
+# Use an official Node.js runtime as a base image
+FROM node:18
 
-# Définir le répertoire de travail dans le conteneur
-#WORKDIR /app
+# Set the working directory in the container
+WORKDIR /app
 
-# Copier le fichier package.json et package-lock.json
-COPY . .
+# Copy package.json and package-lock.json to install dependencies
+COPY package*.json ./
 
-# Installer les dépendances
+# Install dependencies
 RUN npm install
 
-# Copier le reste des fichiers de l'application
-#COPY . .
+# Copy the rest of the application code
+COPY . .
 
-# Exposer le port sur lequel l'application va tourner
+# Expose the port your server will run on
 EXPOSE 8080
 
-# Démarrer l'application
+# Set the environment variables
+ENV PORT=8080
+ENV MONGODB_URI=mongodb://mongo:27017/foodeshare
+
+# Start the application
 CMD ["npm", "run", "dev"]
