@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/recipes')
+      .get('http://localhost:8080/recipes')
       .then((response) => {
         setRecipes(response.data);
         setLoading(false);
