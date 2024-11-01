@@ -7,10 +7,11 @@
     "dev": "nodemon src/server.js"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "express": "^4.21.1",
-    "mongoose": "^8.7.3",
+    "mongoose": "^8.8.0",
     "parser": "^0.1.4",
     "topology": "^0.2.1"
   },

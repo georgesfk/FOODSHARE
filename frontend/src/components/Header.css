@@ -1,0 +1,17 @@
+/* src/components/Header.css */
+.header {
+    background-color: #4CAF50; /* Green background */
+    color: white;              /* White text */
+    text-align: center;        /* Centered text */
+    padding: 1rem;            /* Padding */
+}
+
+.header h1 {
+    margin: 0;                /* Remove default margin */
+    font-size: 2.5rem;        /* Header font size */
+}
+
+.header p {
+    margin: 0;                /* Remove default margin */
+    font-size: 1.2rem;        /* Subheader font size */
+}

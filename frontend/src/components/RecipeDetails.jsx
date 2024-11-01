@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import './RecipeDetail.css'; // Optional: for styling
 
 const RecipeDetail = () => {
   const { id } = useParams();
@@ -36,13 +37,22 @@ const RecipeDetail = () => {
   };
 
   return (
-    <div>
+    <div className="recipe-detail">
       {error && <p className="error-message">{error}</p>}
 
       {recipe ? (
         <>
           <h1>{recipe.title}</h1>
+          {recipe.image && <img src={recipe.image} alt={recipe.title} className="recipe-image" />}
           <p>{recipe.description}</p>
+          
+          {/* New Metadata Section */}
+          <div className="recipe-meta">
+            <p><strong>Cooking Time:</strong> {recipe.cookingTime} minutes</p>
+            <p><strong>Servings:</strong> {recipe.servings}</p>
+            <p><strong>Cuisine:</strong> {recipe.cuisine}</p>
+            <p><strong>Calories:</strong> {recipe.nutrition?.calories} kcal</p>
+          </div>
 
           <h3>Ingredients</h3>
           <ul>
