@@ -1,9 +1,9 @@
 /* src/components/About.css */
 .about {
-    padding: 20px;
+    padding: 10px;
     background-color: #f9f9f9; /* Light gray background */
-    border-radius: 8px;        /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 4px;        /* Rounded corners */
+    box-shadow: 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .about h2 {
@@ -16,5 +16,5 @@
 }
 
 .about p {
-    margin: 10px 0; /* Space between paragraphs */
+    margin: 100px 0; /* Space between paragraphs */
 }

@@ -1,15 +1,19 @@
 npm run build.
 
-npm run dev.
+  npm run dev.
 
-  serve -s build.
+   serve -s build.
   
-  npm start server.js
+    npm start server.js
 
-   npm install -g serve.
+     npm install -g serve.
 
-    http://localhost:3000/ .
+      http://localhost:3000/.
 
-    npm run react-scripts build.
+       npm run react-scripts build.
 
-    npm install react-router-dom;
+        npm install react-router-dom.
+
+         docker-compose up --build -d.
+
+          docker run -p 27017:27017 mongo.
