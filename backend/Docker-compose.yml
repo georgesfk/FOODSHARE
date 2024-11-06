@@ -20,4 +20,4 @@ services:
 volumes:
   mongo-data:
 
-MongooseError: Model.find() no longer accepts a callback
+# MongooseError: Model.find() no longer accepts a callback

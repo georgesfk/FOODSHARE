@@ -9,7 +9,11 @@ class Submit extends Component {
             description:'',
             ingredients: '',
             instructions: '',
-            errorMessage: '',
+            // cookingtime:'',
+            // Servings:'',
+            // Cuisine:'',
+            // Calories:'',
+            // errorMessage: '',
         };
     }
 
@@ -36,7 +40,7 @@ class Submit extends Component {
             instructions,
         });
 
-        axios.post('http://localhost:8080/api/recipes', this.state)
+        axios.post('http://localhost:3000/api/recipes', this.state)
         .then(response => {
           alert('Recipe submitted successfully!');
           // Optionnel : Rediriger ou réinitialiser le formulaire
@@ -100,6 +104,51 @@ class Submit extends Component {
                             />
                         </label>
                     </div>
+                    {/* <div>
+                        <label>
+                            Mode of cooking:
+                            <textarea
+                                name="cooking time"
+                                value={Cooking}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Serving:
+                            <textarea
+                                name="serving"
+                                value={Cooking}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Cuisine:
+                            <textarea
+                                name="cuisine"
+                                value={Cooking}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                        Calories:
+                            <textarea
+                                name="Calories"
+                                value={Cooking}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </label>
+                    </div> */}
+                   
                     <button type="submit">Submit Recipe</button>
                 </form>
             </div>

@@ -7,7 +7,7 @@ function RecipeList() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/api/recipes`)
+            .get(`http://localhost:3000/api/recipes`)
             .then(response => {
                 setRecipes(response.data);
             })
@@ -33,7 +33,7 @@ function RecipeList() {
                                 : recipe.description}
                         </p>
                         <a href={`/recipe/${recipe.id}`} className="recipe-button">
-                            View Recipe
+                            View RecipeDetails
                         </a>
                     </div>
                 ))

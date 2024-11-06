@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/api/recipes')
+      .get('http://localhost:3000/api/recipes')
       .then((response) => {
         setRecipes(response.data);
         setLoading(false);
@@ -51,12 +51,12 @@ const Home = () => {
       <h2>Welcome to FoodieShare</h2>
       <h3>We Have a Lot of Recipes</h3>
 
-      <Link to="/recipe-list">
+      {/* <Link to="/recipe-list">
         <button className="recipe-button">Recipe List</button>
       </Link>
       <Link to="/submit">
         <button className="submit-button">Submit</button>
-      </Link>
+      </Link> */}
 
       {renderContent()}
     </div>
